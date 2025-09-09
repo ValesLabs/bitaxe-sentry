@@ -12,7 +12,7 @@ import subprocess
 from typing import Optional, Dict, Any, List
 import json
 from pydantic import BaseModel
-from .db import get_session, Miner, Reading
+from .db import get_session, Miner, Reading, init_db
 from .config import ENDPOINTS, reload_config
 from .notifier import send_startup_notification, send_test_notification
 from .version import __version__
@@ -20,6 +20,10 @@ from .settings_manager import load_settings, save_settings
 from .poller import poll_once
 
 logger = logging.getLogger(__name__)
+
+# Initialize database tables
+init_db()
+logger.info("Database initialized")
 
 # Create FastAPI app
 app = FastAPI(title="Bitaxe Sentry")
