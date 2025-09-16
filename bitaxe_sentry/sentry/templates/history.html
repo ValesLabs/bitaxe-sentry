@@ -151,8 +151,8 @@
                 <h5 id="hashRateTitle">Hash Rate</h5>
                 <div class="chart-controls">
                     <button class="btn btn-sm btn-outline-secondary" data-hours="1" onclick="updateAllCharts(1)">1h</button>
-                    <button class="btn btn-sm btn-outline-secondary" data-hours="6" onclick="updateAllCharts(6)">6h</button>
-                    <button class="btn btn-sm btn-outline-secondary active" data-hours="24" onclick="updateAllCharts(24)">24h</button>
+                    <button class="btn btn-sm btn-outline-secondary active" data-hours="6" onclick="updateAllCharts(6)">6h</button>
+                    <button class="btn btn-sm btn-outline-secondary" data-hours="24" onclick="updateAllCharts(24)">24h</button>
                 </div>
             </div>
             <div class="card-body">
@@ -198,8 +198,8 @@
                 <h5>Temperature (°C)</h5>
                 <div class="chart-controls">
                     <button class="btn btn-sm btn-outline-secondary" data-hours="1" onclick="updateAllCharts(1)">1h</button>
-                    <button class="btn btn-sm btn-outline-secondary" data-hours="6" onclick="updateAllCharts(6)">6h</button>
-                    <button class="btn btn-sm btn-outline-secondary active" data-hours="24" onclick="updateAllCharts(24)">24h</button>
+                    <button class="btn btn-sm btn-outline-secondary active" data-hours="6" onclick="updateAllCharts(6)">6h</button>
+                    <button class="btn btn-sm btn-outline-secondary" data-hours="24" onclick="updateAllCharts(24)">24h</button>
                 </div>
             </div>
             <div class="card-body">
@@ -241,8 +241,8 @@
                 <h5>Voltage (V)</h5>
                 <div class="chart-controls">
                     <button class="btn btn-sm btn-outline-secondary" data-hours="1" onclick="updateAllCharts(1)">1h</button>
-                    <button class="btn btn-sm btn-outline-secondary" data-hours="6" onclick="updateAllCharts(6)">6h</button>
-                    <button class="btn btn-sm btn-outline-secondary active" data-hours="24" onclick="updateAllCharts(24)">24h</button>
+                    <button class="btn btn-sm btn-outline-secondary active" data-hours="6" onclick="updateAllCharts(6)">6h</button>
+                    <button class="btn btn-sm btn-outline-secondary" data-hours="24" onclick="updateAllCharts(24)">24h</button>
                 </div>
             </div>
             <div class="card-body">
@@ -682,7 +682,7 @@
         setInterval(() => {
             // Get current time window from active buttons
             const activeButton = document.querySelector('.chart-controls .active');
-            const hoursWindow = activeButton ? parseInt(activeButton.getAttribute('data-hours'), 10) : 24;
+            const hoursWindow = activeButton ? parseInt(activeButton.getAttribute('data-hours'), 10) : 6;
             
             console.log(`Auto-refreshing charts with ${hoursWindow}h window`);
             
@@ -756,7 +756,7 @@
         updateUnitButtons();
         // Re-render datasets with new unit
         const activeButton = document.querySelector('.chart-controls .active');
-        const hoursWindow = activeButton ? parseInt(activeButton.getAttribute('data-hours'), 10) : 24;
+        const hoursWindow = activeButton ? parseInt(activeButton.getAttribute('data-hours'), 10) : 6;
         updateAllCharts(hoursWindow);
     }
     function updateUnitButtons() {
@@ -855,9 +855,8 @@
                     // Initialize charts
                     initCharts();
                     
-                    // Update all charts with 24h window initially
-                    updateAllCharts(24);
-                    updateHashRateTitle(24);
+                    // Update all charts with 6h window initially
+                    updateAllCharts(6);
 
                     // Apply initial theme to charts
                     const isDark = (document.documentElement.getAttribute('data-theme') === 'dark');
